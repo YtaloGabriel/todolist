@@ -6,15 +6,128 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   background-color: rgba(0,0,0,.5);
   backdrop-filter: blur(5px);
   z-index: 1000;
 }
 
 .modalContent {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: var(--dark2);
-  height: 15rem;
   border-radius: 1rem;
   box-shadow: 0 0 .8rem rgba(0,0,0,.4);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.modalTop {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.modalTit {
+  font-size: 1.5rem;
+  color: var(--white1);
+  font-weight: 400;
+}
+
+.modalTop > span {
+  cursor: pointer;
+}
+
+.gradientBar {
+  position: absolute;
+  background-image: linear-gradient(to right, var(--pink2), var(--pink3));
+  width: 100%;
+  height: 2px;
+  bottom: -1.5rem;
+}
+
+
+/* Form */
+.form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.label > span {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  color: var(--white3);
+  font-weight: 300;
+}
+
+.label:nth-child(1) {
+  flex: 1;
+  min-width: 100%;
+}
+
+.label:nth-child(2) {
+  margin-right: 1.5rem;
+}
+
+.label:nth-child(3) {
+  flex: 1;
+}
+
+.input {
+  height: 3rem;
+  background-color: transparent;
+  border: 2px solid rgba(255,255,255,.075);
+  border-radius: .5rem;
+  padding: .75rem;
+  font-size: 1rem;
+  font-weight: 300;
+  outline: transparent;
+  color: var(--white2);
+}
+
+.input:focus {
+  border-color: var(--pink2);
+}
+
+.modalBottom {
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cancel {
+  margin-right: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  text-decoration: underline;
+}
+
+.submit {
+  background-color: var(--pink1);
+  padding: .8rem;
+  min-width: 7rem;
+  border-radius: .5rem;
+  border: none;
+  color: var(--dark1);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: var(--pink3);
 }
