@@ -21,6 +21,7 @@
   box-shadow: 0 0 .8rem rgba(0,0,0,.4);
   overflow: hidden;
   padding: 2rem;
+  animation: animeEnter .4s forwards;
 }
 
 .modalTop {
@@ -130,4 +131,15 @@
 
 .submit:hover {
   background-color: var(--pink3);
+}
+
+
+@keyframes animeEnter {
+  from {
+    transform: translateY(-1rem);
+    opacity: 0;
+  } to {
+    transform: initial;
+    opacity: initial;
+  }
 }
