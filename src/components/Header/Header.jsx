@@ -1,6 +1,6 @@
 import React from 'react';
-import Styles from '../css/Header/Header.module.css';
 import { GlobalContext } from '../../GlobalContext';
+import Styles from '../css/Header/Header.module.css';
 import Modal from './Modal';
 
 const Header = () => {
