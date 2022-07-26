@@ -2,6 +2,7 @@ import React from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Header.module.css';
 import Modal from './Modal';
+import Add from '../../assets/icons/Add.svg';
 
 const Header = () => {
   const { modal, setModal } = React.useContext(GlobalContext);
@@ -18,7 +19,9 @@ const Header = () => {
         }}
         ref={buttonRef}
       >
-        <span>+</span>
+        <span>
+          <img src={Add} alt="Add Icon" />
+        </span>
         <div className={Styles.addIcon}>Adicionar Tarefa</div>
       </button>
 

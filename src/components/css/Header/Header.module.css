@@ -33,7 +33,7 @@
 }
 
 .addTask > span {
-  background-image: linear-gradient(45deg, var(--pink2), var(--pink3));
+  background-image: linear-gradient(45deg, var(--pink1), var(--pink2));
   color: var(--dark1);
   font-weight: 700;
   margin:0 .5rem 0 .1rem;
@@ -42,8 +42,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   border-radius: .5rem;
+}
+
+.addTask > span > img {
+  width: 85%;
 }
 
 .addTask:hover {

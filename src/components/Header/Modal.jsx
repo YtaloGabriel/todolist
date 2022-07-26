@@ -1,6 +1,7 @@
 import React from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Modal.module.css';
+import CloseIcon from '../../assets/icons/Delete.svg';
 
 const Modal = ({ buttonRef }) => {
   const { setModal, tasksList, setTasksList } = React.useContext(GlobalContext);
@@ -57,11 +58,12 @@ const Modal = ({ buttonRef }) => {
           <div className={Styles.modalTop}>
             <p className={Styles.modalTit}>Adicionar Tarefa</p>
             <span
+              className={Styles.modalCloseIcon}
               onClick={() => {
                 setModal(false);
               }}
             >
-              X
+              <img src={CloseIcon} alt="Close Icon" />
             </span>
             <span className={Styles.gradientBar}></span>
           </div>

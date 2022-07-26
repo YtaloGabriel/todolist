@@ -38,8 +38,18 @@
   font-weight: 400;
 }
 
-.modalTop > span {
+.modalCloseIcon {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  transition: .3s ease;
+}
+
+.modalCloseIcon:hover {
+  transform: rotate(90deg);
 }
 
 .gradientBar {
@@ -47,7 +57,7 @@
   background-image: linear-gradient(to right, var(--pink2), var(--pink3));
   width: 100%;
   height: 2px;
-  bottom: -1.5rem;
+  bottom: -1.2rem;
 }
 
 
