@@ -1,0 +1,19 @@
+.container {
+  margin-bottom: 3rem;
+}
+
+.contentTop {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: var(--white2);
+  display: flex;
+  align-items: center;
+}
+
+.title > span {
+  font-size: 1rem;
+  margin-left: .3rem;
+}

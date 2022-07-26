@@ -3,25 +3,47 @@ import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Modal.module.css';
 
 const Modal = ({ buttonRef }) => {
-  const { setModal } = React.useContext(GlobalContext);
+  const { setModal, tasksList, setTasksList } = React.useContext(GlobalContext);
+
   const modalLimbo = React.useRef();
+  const inputName = React.useRef();
+  const inputDate = React.useRef();
+  const inputCate = React.useRef();
 
   const modalMarginTop = buttonRef.current.offsetTop;
   const modalMaxWidth = buttonRef.current.clientWidth;
 
-  const checkOutsideClick = ({ target }) => {
-    if (target === modalLimbo.current) setModal(false);
+  const checkModalOutsideClick = ({ target }) => {
+    target === modalLimbo.current && setModal(false);
   };
 
   const modalSubmit = (event) => {
     event.preventDefault();
+
+    // get inputs data and put info in Context.
+    try {
+      const taskName = inputName.current.value;
+      const taskDate = inputDate.current.value;
+      const taskCate = inputCate.current.value;
+      const taskId = `task${tasksList.length + 1}`;
+      const taskState = 'opened';
+
+      setTasksList([
+        ...tasksList,
+        { taskId, taskState, taskName, taskDate, taskCate },
+      ]);
+    } catch (err) {
+      setModal(false);
+    } finally {
+      setModal(false);
+    }
   };
 
-  const modalRendering = () => {
+  const modalRender = () => {
     return (
       <section
         className={Styles.modalContainer}
-        onMouseDown={checkOutsideClick}
+        onMouseDown={checkModalOutsideClick}
         ref={modalLimbo}
       >
         <div
@@ -47,17 +69,22 @@ const Modal = ({ buttonRef }) => {
           <form className={Styles.form} onSubmit={modalSubmit}>
             <label className={Styles.label}>
               <span>Nome da Tarefa *</span>
-              <input type="text" className={Styles.input} required />
+              <input
+                ref={inputName}
+                type="text"
+                className={Styles.input}
+                required
+              />
             </label>
 
             <label className={Styles.label}>
               <span>Data</span>
-              <input type="date" className={Styles.input} />
+              <input ref={inputDate} type="date" className={Styles.input} />
             </label>
 
             <label className={Styles.label}>
               <span>Categoria</span>
-              <input type="text" className={Styles.input} />
+              <input ref={inputCate} type="text" className={Styles.input} />
             </label>
 
             <div className={Styles.modalBottom}>
@@ -78,7 +105,7 @@ const Modal = ({ buttonRef }) => {
   };
 
   // Component rendering
-  return modalRendering();
+  return modalRender();
 };
 
 export default Modal;

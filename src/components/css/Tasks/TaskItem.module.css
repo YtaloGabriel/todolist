@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--dark2);
+  width: 100%;
+  min-height: 4rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.checkBox {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  border-radius: .7rem;
+  border: 3px solid var(--pink1);
+  cursor: pointer;
+}
+
+.checkBox:hover {
+  border-color: var(--pink3);
+}
+
+.info {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.infoTitle {
+  flex: 1;
+  font-size: 1rem;
+  min-width: 100%;
+  color: var(--white2);
+}
+
+.infoDate, .infoCategory {
+  font-size: .8rem;
+}
+
+.infoDate {
+  opacity: .7;
+}
+
+.infoCategory {
+  margin-right: .5rem;
+  color: var(--pink3);
+}
