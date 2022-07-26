@@ -21,7 +21,7 @@ const TaskItem = ({ id, state, name, date, category }) => {
   };
 
   return (
-    <section className={Styles.container} id={id}>
+    <section className={`${Styles.container} ${state}`} id={id}>
       <div className={Styles.checkBox} onClick={toggleTasks}></div>
       <div className={Styles.info}>
         <h4 className={Styles.infoTitle}>{name}</h4>
