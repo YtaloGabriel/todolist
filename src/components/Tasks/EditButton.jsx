@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from '../css/Tasks/TasksButtons.module.css';
 
-const EditButton = () => {
+const EditButton = ({ parent }) => {
   return <button className={Styles.edit}></button>;
 };
 

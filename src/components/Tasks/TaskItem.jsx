@@ -6,6 +6,7 @@ import RemoveButton from './RemoveButton';
 
 const TaskItem = ({ id, state, name, date, category }) => {
   const { tasksList, setTasksList } = React.useContext(GlobalContext);
+  const taskElement = React.useRef();
 
   const toggleTasks = ({ target }) => {
     const itemId = target.parentElement.id;
@@ -23,7 +24,11 @@ const TaskItem = ({ id, state, name, date, category }) => {
   };
 
   return (
-    <section className={`${Styles.container} ${state}`} id={id}>
+    <section
+      className={`${Styles.container} ${state}`}
+      id={id}
+      ref={taskElement}
+    >
       <div className={Styles.checkBox} onClick={toggleTasks}></div>
 
       <div className={Styles.info}>
@@ -33,8 +38,8 @@ const TaskItem = ({ id, state, name, date, category }) => {
       </div>
 
       <div className={Styles.options}>
-        <EditButton />
-        <RemoveButton />
+        <EditButton parent={taskElement} />
+        <RemoveButton parent={taskElement} />
       </div>
     </section>
   );
