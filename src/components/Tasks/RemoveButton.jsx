@@ -6,8 +6,6 @@ const RemoveButton = ({ parent }) => {
   const { tasksList, setTasksList } = React.useContext(GlobalContext);
 
   const removeItem = () => {
-    console.log(parent.current);
-
     const itemId = parent.current.id;
 
     const removeTask = tasksList.filter((i) => {

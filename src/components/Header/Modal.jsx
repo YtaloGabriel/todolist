@@ -30,8 +30,8 @@ const Modal = ({ buttonRef }) => {
       const taskState = 'opened';
 
       setTasksList([
-        ...tasksList,
         { taskId, taskState, taskName, taskDate, taskCate },
+        ...tasksList,
       ]);
     } catch (err) {
       setModal(false);

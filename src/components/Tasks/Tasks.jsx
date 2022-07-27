@@ -27,7 +27,7 @@ const Tasks = () => {
   if (tasksList.length) {
     return tasksRender();
   } else {
-    return 'Sem informações';
+    return <p>Sem Informações</p>;
   }
 };
 

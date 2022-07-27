@@ -20,7 +20,7 @@ const TaskItem = ({ id, state, name, date, category }) => {
       return i;
     });
 
-    setTasksList([...changeTask, changeTask]);
+    setTasksList([changeTask, ...changeTask]);
   };
 
   return (
