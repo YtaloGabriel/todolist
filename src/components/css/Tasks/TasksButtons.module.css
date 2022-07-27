@@ -1,0 +1,28 @@
+/* Option buttons */
+
+.edit, .remove {
+  background-color: transparent;
+  border: none;
+  outline: transparent;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.edit:hover, .remove:hover {
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, .5);
+}
+
+.edit {
+  background-image: url('../../../assets/icons/Edit.svg');
+}
+
+.remove {
+  background-image: url('../../../assets/icons/Delete.svg');
+  margin-left: .5rem;
+}

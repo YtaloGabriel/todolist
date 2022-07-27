@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Modal.module.css';
-import CloseIcon from '../../assets/icons/Delete.svg';
+import CloseIcon from '../../assets/icons/Cancel.svg';
 
 const Modal = ({ buttonRef }) => {
   const { setModal, tasksList, setTasksList } = React.useContext(GlobalContext);
