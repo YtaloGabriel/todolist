@@ -3,40 +3,69 @@ import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Modal.module.css';
 import CloseIcon from '../../assets/icons/Cancel.svg';
 
-const Modal = ({ buttonRef }) => {
+const Modal = ({ finality, name, date, category, buttonRef }) => {
   const { setModal, tasksList, setTasksList } = React.useContext(GlobalContext);
 
+  const modalMarginTop = buttonRef.current.offsetTop;
+  const modalMaxWidth = buttonRef.current.clientWidth;
+
   const modalLimbo = React.useRef();
+
   const inputName = React.useRef();
   const inputDate = React.useRef();
   const inputCate = React.useRef();
 
-  const modalMarginTop = buttonRef.current.offsetTop;
-  const modalMaxWidth = buttonRef.current.clientWidth;
+  const [inputNameValue, setInputNameValue] = React.useState(name);
+  const [inputDateValue, setInputDateValue] = React.useState(date);
+  const [inputCateValue, setInputCateValue] = React.useState(category);
+
+  const inputNameValueChange = ({ target }) => setInputNameValue(target.value);
+  const inputDateValueChange = ({ target }) => setInputDateValue(target.value);
+  const inputCateValueChange = ({ target }) => setInputCateValue(target.value);
 
   const checkModalOutsideClick = ({ target }) => {
     target === modalLimbo.current && setModal(false);
   };
 
+  const modalName = () => {
+    const teste = 'Nome';
+    return teste;
+  };
+
+  // Function executes on send button click
   const modalSubmit = (event) => {
     event.preventDefault();
 
-    // get inputs data and put info in Context.
-    try {
-      const taskName = inputName.current.value;
-      const taskDate = inputDate.current.value;
-      const taskCate = inputCate.current.value;
-      const taskId = `task${tasksList.length + 1}`;
-      const taskState = 'opened';
+    const createTask = () => {
+      // get inputs data and put info in Context.
+      try {
+        const taskName = inputNameValue;
+        const taskDate = inputDateValue;
+        const taskCate = inputCateValue;
 
-      setTasksList([
-        { taskId, taskState, taskName, taskDate, taskCate },
-        ...tasksList,
-      ]);
-    } catch (err) {
-      setModal(false);
-    } finally {
-      setModal(false);
+        const taskId = `task${tasksList.length + 1}`;
+        const taskState = 'opened';
+
+        setTasksList([
+          { taskId, taskState, taskName: taskName, taskDate, taskCate },
+          ...tasksList,
+        ]);
+      } catch (err) {
+        setModal(false);
+      } finally {
+        setModal(false);
+      }
+    };
+
+    const editTask = () => {
+      console.log('Editar');
+    };
+
+    // execute finality function
+    if (finality !== 'edit') {
+      createTask();
+    } else {
+      editTask();
     }
   };
 
@@ -56,7 +85,9 @@ const Modal = ({ buttonRef }) => {
           }}
         >
           <div className={Styles.modalTop}>
-            <p className={Styles.modalTit}>Adicionar Tarefa</p>
+            <p className={Styles.modalTit}>
+              {finality === 'edit' ? 'Editar Tarefa' : 'Criar Tarefa'}
+            </p>
             <span
               className={Styles.modalCloseIcon}
               onClick={() => {
@@ -75,18 +106,32 @@ const Modal = ({ buttonRef }) => {
                 ref={inputName}
                 type="text"
                 className={Styles.input}
+                value={inputNameValue}
+                onChange={inputNameValueChange}
                 required
               />
             </label>
 
             <label className={Styles.label}>
               <span>Data</span>
-              <input ref={inputDate} type="date" className={Styles.input} />
+              <input
+                ref={inputDate}
+                type="date"
+                className={Styles.input}
+                value={inputDateValue}
+                onChange={inputDateValueChange}
+              />
             </label>
 
             <label className={Styles.label}>
               <span>Categoria</span>
-              <input ref={inputCate} type="text" className={Styles.input} />
+              <input
+                ref={inputCate}
+                type="text"
+                className={Styles.input}
+                value={inputCateValue}
+                onChange={inputCateValueChange}
+              />
             </label>
 
             <div className={Styles.modalBottom}>

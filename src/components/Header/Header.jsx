@@ -1,8 +1,8 @@
 import React from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import Styles from '../css/Header/Header.module.css';
-import Modal from './Modal';
 import Add from '../../assets/icons/Add.svg';
+import Modal from './Modal';
 
 const Header = () => {
   const { modal, setModal } = React.useContext(GlobalContext);
@@ -25,7 +25,15 @@ const Header = () => {
         <div className={Styles.addIcon}>Adicionar Tarefa</div>
       </button>
 
-      {modal && <Modal buttonRef={buttonRef} />}
+      {modal && (
+        <Modal
+          buttonRef={buttonRef}
+          finality={'create'}
+          name={'Teste'}
+          date={'2012-12-12'}
+          category={'teste'}
+        />
+      )}
     </header>
   );
 };
